@@ -18,9 +18,9 @@ function toggleUnits() {
 function calculateTDEE(weight, height, age, gender, activity) {
   let bmr;
   if (gender === 'male') {
-      bmr = 66.5 + (13.75 * weight) + (5.003 * height) - (6.75 * age);
+      bmr = 5 + (10 * weight) + (6.25 * height) - (5 * age);
   } else {
-      bmr = 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age);
+      bmr = -10 + (10 * weight) + (6.25* height) - (5 * age);
   }
   return bmr * activity;
 }
