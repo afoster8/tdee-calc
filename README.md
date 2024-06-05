@@ -4,7 +4,7 @@
 
 Weight loss may be calories-in, calories-out, but here's an unfortunate truth -- your Total Daily Energy Expenditure will drop as you lose weight. You may lose up to 10 calories from your TDEE for every pound lost! If you're not cognizant of this effect, you may start to lose trust in the process and fall off the wagon. This tool will help you set appropriate expectations for weight loss over time.
 
-This tool recalculates your TDEE after every week of weight loss, minimizing the guess work and rounding errors. Enter your preferred unit system (imperial or metric), current weight, height, age, sex, activity level, calorie intake goal, and goal weight. If you're unsure about your goal weight, feel free to enter 0. 
+This tool recalculates your TDEE after every week of weight loss or gain, minimizing the guess work and rounding errors. Enter your preferred unit system (imperial or metric), current weight, height, age, sex, activity level, and calorie intake goal to generate a table that lists the current week, the weight you should expect to reach that week, how much change there was, and the updated TDEE at that new weight.
 
 ### Notes
 - The BMR formula used here is the Harris-Benedict BMR Formula.
