@@ -3,48 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TDEE Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
-        }
-        .calculator {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-        input, select, button {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Weight Loss Projection</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="calculator">
-        <h1>TDEE Calculator</h1>
-        <input type="number" id="weight" placeholder="Weight (kg)" required>
-        <input type="number" id="height" placeholder="Height (cm)" required>
+        <h1>Weight Loss Progress Projection Tool</h1>
+        <select id="unit-system" onchange="toggleUnits()">
+            <option value="imperial">Imperial (lbs, inches)</option>
+            <option value="metric">Metric (kg, cm)</option>
+        </select>
+        <input type="number" id="weight" placeholder="Weight (lbs)" required>
+        <input type="number" id="height" placeholder="Height (in)" required>
         <input type="number" id="age" placeholder="Age" required>
         <select id="gender">
             <option value="male">Male</option>
@@ -57,32 +27,23 @@
             <option value="1.725">Very active (hard exercise/sports 6-7 days a week)</option>
             <option value="1.9">Super active (very hard exercise/sports & physical job)</option>
         </select>
-        <button onclick="calculateTDEE()">Calculate TDEE</button>
-        <p id="result"></p>
+        <input type="number" id="goal-intake" placeholder="Goal Intake (calories)" required>
+        <input type="number" id="goal-weight" placeholder="Goal Weight (lbs)" required>
+        <button onclick="trackProgress()">Project Weight</button>
+        <table id="progress-table">
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Date</th>
+                    <th>Weight</th>
+                    <th>Loss</th>
+                    <th>TDEE</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
-    <script>
-        function calculateTDEE() {
-            const weight = document.getElementById('weight').value;
-            const height = document.getElementById('height').value;
-            const age = document.getElementById('age').value;
-            const gender = document.getElementById('gender').value;
-            const activity = document.getElementById('activity').value;
-
-            if (weight === '' || height === '' || age === '') {
-                alert('Please fill in all fields.');
-                return;
-            }
-
-            let bmr;
-            if (gender === 'male') {
-                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-            } else {
-                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
-            }
-
-            const tdee = bmr * activity;
-            document.getElementById('result').textContent = `Your TDEE is ${Math.round(tdee)} calories/day.`;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
