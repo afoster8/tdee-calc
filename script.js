@@ -18,9 +18,9 @@ function toggleUnits() {
 function calculateTDEE(weight, height, age, gender, activity) {
   let bmr;
   if (gender === 'male') {
-      bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+      bmr = 66.5 + (13.75 * weight) + (5.003 * height) - (6.75 * age);
   } else {
-      bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+      bmr = 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age);
   }
   return bmr * activity;
 }
@@ -53,17 +53,16 @@ function trackProgress() {
   const gender = document.getElementById('gender').value;
   const activity = parseFloat(document.getElementById('activity').value);
   const goalIntake = parseFloat(document.getElementById('goal-intake').value);
-  let goalWeight = convert_weight(parseFloat(document.getElementById('goal-weight').value));
 
   const progress = [];
   let week = 1;
   let currentWeight = weight;
   let currentDate = new Date();
 
-  while (currentWeight > goalWeight) {
+  while (week < 208 && currentWeight > 0) {
       const tdee = calculateTDEE(currentWeight, height, age, gender, activity);
-      const weightLoss = (tdee - goalIntake) * 7 / 7700; 
-      currentWeight -= weightLoss;
+      const weightLoss = -((tdee - goalIntake) * 7 / 7700); 
+      currentWeight += weightLoss;
 
       progress.push({
           week: week,

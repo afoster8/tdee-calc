@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weight Loss Projection</title>
+    <title>Weight Projection</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="calculator">
-        <h1>Weight Loss Progress Projection Tool</h1>
+        <h1>Weight Progress Projection Tool</h1>
         <select id="unit-system" onchange="toggleUnits()">
             <option value="imperial">Imperial (lbs, inches)</option>
             <option value="metric">Metric (kg, cm)</option>
@@ -28,7 +28,6 @@
             <option value="1.9">Super active (very hard exercise/sports & physical job)</option>
         </select>
         <input type="number" id="goal-intake" placeholder="Goal Intake (calories)" required>
-        <input type="number" id="goal-weight" placeholder="Goal Weight (lbs)" required>
         <button onclick="trackProgress()">Project Weight</button>
         <table id="progress-table">
             <thead>
@@ -36,7 +35,7 @@
                     <th>Week</th>
                     <th>Date</th>
                     <th>Weight</th>
-                    <th>Loss</th>
+                    <th>Change</th>
                     <th>TDEE</th>
                 </tr>
             </thead>
