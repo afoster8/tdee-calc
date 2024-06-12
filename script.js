@@ -57,12 +57,14 @@ function trackProgress() {
   const progress = [];
   let week = 1;
   let currentWeight = weight;
-  let currentDate = new Date() + 7;
+  let currentDate = new Date();
 
   while (week < 208 && currentWeight > 0) {
       const tdee = calculateTDEE(currentWeight, height, age, gender, activity);
       const weightLoss = -((tdee - goalIntake) * 7 / 7700); 
       currentWeight += weightLoss;
+
+      currentDate.setDate(currentDate.getDate() + 7);
 
       progress.push({
           week: week,
@@ -72,7 +74,6 @@ function trackProgress() {
           tdee: Math.round(tdee)
       });
 
-      currentDate.setDate(currentDate.getDate() + 7);
       week++;
   }
 
