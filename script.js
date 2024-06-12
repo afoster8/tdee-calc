@@ -57,7 +57,7 @@ function trackProgress() {
   const progress = [];
   let week = 1;
   let currentWeight = weight;
-  let currentDate = new Date();
+  let currentDate = new Date() + 7;
 
   while (week < 208 && currentWeight > 0) {
       const tdee = calculateTDEE(currentWeight, height, age, gender, activity);
